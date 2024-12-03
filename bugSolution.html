@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+  <div id="myOtherDiv"></div>
+
+  <script>
+    //Safe way to use innerHTML
+    const myDiv = document.getElementById('myDiv');
+    if (myDiv) {
+      myDiv.innerHTML = "<p>This text replaces the original content.</p>";
+    } else {
+      console.error("Element with id 'myDiv' not found.");
+    }
+
+    const myOtherDiv = document.getElementById('myOtherDiv');
+    if(myOtherDiv){
+        myOtherDiv.innerHTML = "<p>This text is added safely</p>";
+    }
+
+  </script>
+</body>
+</html>
